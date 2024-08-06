@@ -1,9 +1,9 @@
-export interface User {
-    username: string;
-    password: string;
+export interface AuthData {
+    email: string;
+    token: string;
 }
 
-export interface LoginResponse {
-    accessToken: string;
-    user: User;
+export interface AuthContextProps {
+    authData: AuthData | null;
+    setAuthData: React.Dispatch<React.SetStateAction<AuthData | null>>;
 }
