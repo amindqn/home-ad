@@ -13,7 +13,7 @@
 - Map integration using React Leaflet
 - Form validation with React Hook Form and Yup
 - Light/Dark theme toggle
-- Global cl function for console.log (cl("Hi") = console.log("Hi"))
+- Global cl function for console.log (`cl("Hi") = console.log("Hi")`)
 
 ## Tech Stack
 
