@@ -1,5 +1,12 @@
 import React from "react";
-import { Box, Container, Typography, Link, Grid } from "@mui/material";
+import {
+    Box,
+    Container,
+    Typography,
+    Link,
+    Grid,
+    useMediaQuery,
+} from "@mui/material";
 import { styled } from "@mui/system";
 
 const FooterContainer = styled(Box)(({ theme }) => ({
@@ -7,9 +14,8 @@ const FooterContainer = styled(Box)(({ theme }) => ({
     bottom: 0,
     background: theme.palette.background.paper,
     padding: theme.spacing(1),
-    margin: theme.spacing(1),
     borderTop: `1px solid ${theme.palette.divider}`,
-    zIndex:500
+    zIndex: 500,
 }));
 
 const FooterLink = styled(Link)(({ theme }) => ({
@@ -22,6 +28,8 @@ const FooterLink = styled(Link)(({ theme }) => ({
 }));
 
 const Footer: React.FC = () => {
+    const isSmallScreen = useMediaQuery("(min-width:600px)");
+
     return (
         <FooterContainer>
             <Container maxWidth="lg">
@@ -29,25 +37,27 @@ const Footer: React.FC = () => {
                     container
                     spacing={4}
                 >
-                    <Grid
-                        item
-                        xs={12}
-                        sm={4}
-                    >
-                        <Typography
-                            variant="h6"
-                            gutterBottom
+                    {isSmallScreen && (
+                        <Grid
+                            item
+                            xs={12}
+                            sm={4}
                         >
-                            About Us
-                        </Typography>
-                        <Typography
-                            variant="body2"
-                            color="textSecondary"
-                        >
-                            We are a company dedicated to providing the best
-                            real estate services.
-                        </Typography>
-                    </Grid>
+                            <Typography
+                                variant="h6"
+                                gutterBottom
+                            >
+                                About Us
+                            </Typography>
+                            <Typography
+                                variant="body2"
+                                color="textSecondary"
+                            >
+                                We are a company dedicated to providing the best
+                                real estate services.
+                            </Typography>
+                        </Grid>
+                    )}
                     <Grid
                         item
                         xs={12}
@@ -63,30 +73,32 @@ const Footer: React.FC = () => {
                         <FooterLink href="/about">About</FooterLink>
                         <FooterLink href="/contact">Contact</FooterLink>
                     </Grid>
-                    <Grid
-                        item
-                        xs={12}
-                        sm={4}
-                    >
-                        <Typography
-                            variant="h6"
-                            gutterBottom
+                    {isSmallScreen && (
+                        <Grid
+                            item
+                            xs={12}
+                            sm={4}
                         >
-                            Contact Us
-                        </Typography>
-                        <Typography
-                            variant="body2"
-                            color="textSecondary"
-                        >
-                            Email: contact@example.com
-                        </Typography>
-                        <Typography
-                            variant="body2"
-                            color="textSecondary"
-                        >
-                            Phone: +1 234 567 890
-                        </Typography>
-                    </Grid>
+                            <Typography
+                                variant="h6"
+                                gutterBottom
+                            >
+                                Contact Us
+                            </Typography>
+                            <Typography
+                                variant="body2"
+                                color="textSecondary"
+                            >
+                                Email: contact@example.com
+                            </Typography>
+                            <Typography
+                                variant="body2"
+                                color="textSecondary"
+                            >
+                                Phone: +1 234 567 890
+                            </Typography>
+                        </Grid>
+                    )}
                 </Grid>
             </Container>
         </FooterContainer>

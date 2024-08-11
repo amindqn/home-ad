@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import {
     Button,
@@ -6,10 +6,10 @@ import {
     Toolbar,
     Typography,
     IconButton,
-    Avatar,
     Menu,
     MenuItem,
     Box,
+    useMediaQuery,
 } from "@mui/material";
 import styled from "styled-components";
 import useAuth from "../../hooks/useAuth";
@@ -40,6 +40,7 @@ const Header: React.FC = () => {
     const navigate = useNavigate();
     const { logout } = useAuthApi();
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+    const isSmallScreen = useMediaQuery("(min-width:600px)");
 
     const handleLogout = async () => {
         logout()
@@ -81,7 +82,7 @@ const Header: React.FC = () => {
                         >
                             <HomeIcon fontSize="large" />
                         </IconButton>
-                        <BrandLink to="/">Real Estate App</BrandLink>
+                        {isSmallScreen && <BrandLink to="/">Real Estate App</BrandLink>}
                     </Typography>
                     <Typography>
                         <BrandLink to="/about">About us</BrandLink>

@@ -5,9 +5,9 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import styled from "styled-components";
 
 const StyledIconButton = styled(IconButton)`
-    position: sticky;
+    position: sticky !important;
     left: 0;
-    top: 0;
+    top: 70px;
     background-color: ${({ theme }) => theme.palette.primary.main};
     color: ${({ theme }) => theme.palette.primary.contrastText};
     &:hover {
