@@ -1,10 +1,9 @@
 export interface Ad {
+    title:string;
     id?: string;
     address: string;
-    description: string;
+    description?: string;
     phone: string;
-    location: {
-        lat: number;
-        lng: number;
-    };
+    location: [number,number];
+    userId?: string;
 }
