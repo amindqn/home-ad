@@ -18,6 +18,8 @@ const ProfileContainer = styled(Box)`
     display: flex;
     flex-direction: column;
     gap: 16px;
+    width: 60%;
+    margin: auto;
 `;
 
 interface BasicFormFields {
@@ -119,6 +121,7 @@ const ProfileTab: React.FC = () => {
                     helperText={getErrorMessage(errors.phone)}
                 />
                 <FormControlLabel
+                    sx={{ width: "100%" }}
                     control={
                         <Checkbox
                             checked={editPassword}
@@ -153,6 +156,7 @@ const ProfileTab: React.FC = () => {
                     variant="contained"
                     color="secondary"
                     type="submit"
+                    sx={{width: "100%"}}
                 >
                     Update Profile
                 </Button>

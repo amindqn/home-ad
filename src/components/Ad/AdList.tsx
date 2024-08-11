@@ -15,6 +15,7 @@ const Container = styled(Box)`
     gap: 16px;
     padding: 16px;
     width: fit-content;
+    margin-top: 20px;
 `;
 
 interface AdListProps {
@@ -40,7 +41,7 @@ const AdList = ({ isHome = false }: AdListProps) => {
     if (isLoading) return <div>Loading...</div>;
     if (isError) return <div>Error loading ads</div>;
 
-    if (ads.length === 0) return <NoAds />;
+    if (ads.length === 0) return <NoAds isHome={isHome} />;
     return (
         <Container>
             {ads?.map((ad) => (

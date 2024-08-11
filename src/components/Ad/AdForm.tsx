@@ -43,7 +43,7 @@ const AdForm: React.FC<AdFormProps> = ({ ad, isEditing }) => {
             address: ad?.address || "",
             phone: ad?.phone || "",
             description: ad?.description || "",
-            location: ad?.location || [0, 0],
+            location: ad?.location || [35.6892523, 51.3896004],
         },
         resolver: yupResolver(adFormSchema),
     });

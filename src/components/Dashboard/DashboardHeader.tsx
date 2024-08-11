@@ -10,6 +10,7 @@ const Header = styled(Box)`
     align-items: center;
     justify-content: space-between;
     padding-bottom: 16px;
+    margin-top: 40px;
 `;
 
 const AvatarContainer = styled(Box)`
@@ -26,7 +27,7 @@ const DashboardHeader: React.FC = () => {
         <Header>
             <AvatarContainer>
                 {/* <Avatar>{authData?.username.charAt(0)}</Avatar> */}
-                <AccountBoxIcon fontSize="large"/>
+                <AccountBoxIcon fontSize="large" />
                 <Typography variant="h6">{authData?.username}</Typography>
             </AvatarContainer>
             <Button

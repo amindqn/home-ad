@@ -36,8 +36,10 @@ const SearchResults = styled.ul`
 const SearchResultItem = styled.li`
     padding: 8px;
     cursor: pointer;
+    background-color: ${({ theme }) => theme.palette.background.paper};
     &:hover {
         background-color: #f0f0f0;
+        color:#000;
     }
 `;
 

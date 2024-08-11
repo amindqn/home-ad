@@ -27,12 +27,12 @@ L.Icon.Default.mergeOptions({
 
 interface LocationPickerProps {
     onLocationSelect?: (position: [number, number]) => void;
-    prePosition?: [number, number];
+    prePosition: [number, number];
 }
 
 const LocationPicker: React.FC<LocationPickerProps> = ({
     onLocationSelect,
-    prePosition = [51.505, -0.09],
+    prePosition,
 }) => {
     const [position, setPosition] = useState<[number, number]>(prePosition);
     useEffect(() => {
@@ -59,6 +59,11 @@ const LocationPicker: React.FC<LocationPickerProps> = ({
     return <Marker position={position} />;
 };
 
+
+
+
+
+
 interface MapComponentProps {
     onLocationSelect?: (position: [number, number]) => void;
     prePosition : [number, number];
@@ -66,7 +71,7 @@ interface MapComponentProps {
 
 const MapComponent: React.FC<MapComponentProps> = ({
     onLocationSelect,
-    prePosition = [51.505, -0.09],
+    prePosition = [35.6892523, 51.3896004],
 }) => {
     const [position, setPosition] = useState<[number, number]>(prePosition);
 

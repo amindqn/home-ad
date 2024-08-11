@@ -3,6 +3,7 @@ import { Box, Typography, Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import NoAdsImage from "../../assets/no-ads.png";
+import useAuth from "../../hooks/useAuth";
 
 const Container = styled(Box)`
     display: flex;
@@ -24,8 +25,12 @@ const Image = styled.img`
     border-radius: 4px;
 `;
 
-const NoAds: React.FC = () => {
+interface NoAdsProps {
+    isHome: boolean;
+}
+const NoAds = ({ isHome }: NoAdsProps) => {
     const navigate = useNavigate();
+    const { authData } = useAuth();
 
     return (
         <Container>
@@ -44,30 +49,36 @@ const NoAds: React.FC = () => {
                 color="textSecondary"
                 gutterBottom
             >
-                It looks like there are no ads to display. Please log in or sign
-                up to view or post ads.
+                It looks like there are no ads to display.{" "}
+                {!authData
+                    ? "Please log in or sign up to view or post ads."
+                    : !isHome
+                    ? "Please add an ad"
+                    : ""}
             </Typography>
-            <Box
-                mt={2}
-                display="flex"
-                justifyContent="center"
-                gap={2}
-            >
-                <Button
-                    variant="contained"
-                    color="primary"
-                    onClick={() => navigate("/login")}
+            {!authData && (
+                <Box
+                    mt={2}
+                    display="flex"
+                    justifyContent="center"
+                    gap={2}
                 >
-                    Login
-                </Button>
-                <Button
-                    variant="outlined"
-                    color="primary"
-                    onClick={() => navigate("/signup")}
-                >
-                    Sign Up
-                </Button>
-            </Box>
+                    <Button
+                        variant="contained"
+                        color="primary"
+                        onClick={() => navigate("/login")}
+                    >
+                        Login
+                    </Button>
+                    <Button
+                        variant="outlined"
+                        color="primary"
+                        onClick={() => navigate("/signup")}
+                    >
+                        Sign Up
+                    </Button>
+                </Box>
+            )}
         </Container>
     );
 };
