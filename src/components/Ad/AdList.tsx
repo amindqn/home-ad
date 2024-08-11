@@ -6,6 +6,7 @@ import styled from "styled-components";
 import { Ad } from "../../types/adTypes";
 import useAdApi from "../../api/adApi";
 import useAuth from "../../hooks/useAuth";
+import NoAds from "./NoAds";
 
 const Container = styled(Box)`
     display: flex;
@@ -39,6 +40,7 @@ const AdList = ({ isHome = false }: AdListProps) => {
     if (isLoading) return <div>Loading...</div>;
     if (isError) return <div>Error loading ads</div>;
 
+    if (ads.length === 0) return <NoAds />;
     return (
         <Container>
             {ads?.map((ad) => (
