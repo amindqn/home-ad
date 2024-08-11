@@ -39,6 +39,8 @@ Ensure you have the following installed:
 
    ```bash
    git clone https://github.com/amindqn/home-ad.git
+   # or
+   git clone git@github.com:amindqn/home-ad.git
    cd home-ad-app
    ```
 
