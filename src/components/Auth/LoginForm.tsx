@@ -1,10 +1,13 @@
-import React, { useState, useContext } from "react";
-import { login } from "../../api/authApi";
+import React from "react";
+import { useForm, SubmitHandler } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
 import { Button, TextField, Box } from "@mui/material";
 import styled from "styled-components";
-import { AuthContextProps } from "../../types/authTypes";
-import { AuthContext } from "../../contexts/AuthContex";
 import { useNavigate } from "react-router-dom";
+import useAuthApi from "../../api/authApi";
+import loginSchema from "../../formsSchema/loginSchema";
+
+
 
 const FormContainer = styled(Box)`
     display: flex;
@@ -15,39 +18,54 @@ const FormContainer = styled(Box)`
     padding: 16px;
 `;
 
-const LoginForm: React.FC = () => {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const { setAuthData } = useContext(AuthContext) as AuthContextProps;
-    const navigate = useNavigate();
+interface IFormInput {
+    email: string;
+    password: string;
+}
 
-    const handleLogin = async (e: React.FormEvent) => {
-        e.preventDefault();
-        const data = await login(email, password);
-        setAuthData(data);
-        navigate("/dashboard");
+const LoginForm: React.FC = () => {
+    const navigate = useNavigate();
+    const { login } = useAuthApi();
+
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+    } = useForm<IFormInput>({
+        resolver: yupResolver(loginSchema),
+    });
+
+    const onSubmit: SubmitHandler<IFormInput> = async (data) => {
+        login(data.email, data.password)
+            .then(() => navigate("/dashboard"))
+            .catch((err) => cl("Login failed", err));
     };
 
     return (
-        <FormContainer>
+        <FormContainer
+            component="form"
+            onSubmit={handleSubmit(onSubmit)}
+        >
             <h2>Login</h2>
             <TextField
                 label="Email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
                 fullWidth
+                {...register("email")}
+                error={!!errors.email}
+                helperText={errors.email?.message}
             />
             <TextField
                 label="Password"
                 type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
                 fullWidth
+                {...register("password")}
+                error={!!errors.password}
+                helperText={errors.password?.message}
             />
             <Button
                 variant="contained"
                 color="primary"
-                onClick={handleLogin}
+                type="submit"
             >
                 Login
             </Button>

@@ -1,6 +1,8 @@
 export interface AuthData {
+    id: string;
     email: string;
-    token: string;
+    username: string;
+    phone?: string;
 }
 
 export interface AuthContextProps {
