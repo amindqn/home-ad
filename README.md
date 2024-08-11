@@ -38,7 +38,7 @@ Ensure you have the following installed:
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/amindqn/home-ad-app.git
+   git clone https://github.com/amindqn/home-ad.git
    cd home-ad-app
    ```
 
