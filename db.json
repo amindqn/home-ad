@@ -1,5 +1,26 @@
 {
-  "users": [],
-  "ads": [],
+  "users": [
+    {
+      "email": "amin447996@gmail.com",
+      "password": "$2a$10$BoegdJEhN.X5UEdyO9HcKuL7aqIqQqe37W3VyLJdI4TKHEAd9ZLZK",
+      "username": "amin",
+      "phone": "",
+      "id": 1
+    }
+  ],
+  "ads": [
+    {
+      "title": "kooy",
+      "address": "تهران، امیرآباد، کارگر شمالی بعد از پانزدهم، مجتمع کوی دانشگاه تهران،",
+      "phone": "09366653595",
+      "description": "kooy khoobieh",
+      "location": [
+        35.72975769999999,
+        51.38550870070162
+      ],
+      "userId": 1,
+      "id": 1
+    }
+  ],
   "contact": []
 }

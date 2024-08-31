@@ -28,7 +28,7 @@ const Container = styled(Box)`
     gap: 16px;
     padding: 24px;
     max-width: 900px;
-    margin: auto;
+    margin: 30px auto;
     background-color: ${({theme}) => theme.palette.background.paper};
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
