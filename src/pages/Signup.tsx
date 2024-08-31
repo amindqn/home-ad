@@ -7,7 +7,7 @@ const Container = styled(Box)`
     padding: 16px;
     background-color: ${({ theme }) => theme.palette.background.paper};
     width: 50%;
-    min-width: 400px;
+    min-width: 350px;
     margin: auto;
     margin-top: 60px;
     border-radius: 10px;

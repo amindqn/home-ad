@@ -18,14 +18,13 @@ const ContactContainer = styled(Box)`
 const ContactContent = styled(Box)`
     display: flex;
     flex-direction: column;
-    gap: 24px;
-    background: ${({ theme }) => theme.palette.background.paper};
+    gap: 10px;
     padding: 32px;
     border-radius: 16px;
-    box-shadow: ${({ theme }) => (theme.palette.mode === "dark" ? "0 10px 20px rgba(0, 0, 0, 0.5)" : "0 10px 20px rgba(0, 0, 0, 0.1)")};
+    box-shadow: ${({ theme }) => (theme.palette.mode === "dark" ? "0 5px 40px rgba(120, 120, 120, 0.244)" : "0 20px 40px rgba(0, 0, 0, 0.15)")};
     transition: box-shadow 0.3s ease, transform 0.3s ease;
     &:hover {
-        box-shadow: ${({ theme }) => (theme.palette.mode === "dark" ? "0 20px 40px rgba(0, 0, 0, 0.7)" : "0 20px 40px rgba(0, 0, 0, 0.2)")};
+        box-shadow: ${({ theme }) => (theme.palette.mode === "dark" ? "0 20px 60px rgba(167, 167, 167, 0.405)" : "0 30px 60px rgba(0, 0, 0, 0.3)")};
         transform: translateY(-10px);
     }
 `;

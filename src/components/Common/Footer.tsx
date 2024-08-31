@@ -28,7 +28,7 @@ const FooterLink = styled(Link)(({ theme }) => ({
 }));
 
 const Footer: React.FC = () => {
-    const isSmallScreen = useMediaQuery("(min-width:600px)");
+    const isBigScreen = useMediaQuery("(min-width:600px)");
 
     return (
         <FooterContainer>
@@ -37,7 +37,7 @@ const Footer: React.FC = () => {
                     container
                     spacing={4}
                 >
-                    {isSmallScreen && (
+                    {isBigScreen && (
                         <Grid
                             item
                             xs={12}
@@ -73,7 +73,7 @@ const Footer: React.FC = () => {
                         <FooterLink href="/about">About</FooterLink>
                         <FooterLink href="/contact">Contact</FooterLink>
                     </Grid>
-                    {isSmallScreen && (
+                    {isBigScreen && (
                         <Grid
                             item
                             xs={12}
